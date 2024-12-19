@@ -1,0 +1,7 @@
+.slds-input {
+  padding-top: 0;
+  padding-right: var(--slds-c-input-spacing-horizontal-end, var(--sds-c-input-spacing-horizontal-end, var(--lwc-spacingMedium, 1rem)));
+  padding-bottom: 0;
+  padding-left: var(--slds-c-input-spacing-horizontal-start, var(--sds-c-input-spacing-horizontal-start, var(--lwc-spacingSmall, 0.75rem)));
+  width: 100%;
+}

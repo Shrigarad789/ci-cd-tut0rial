@@ -1,0 +1,73 @@
+<!-- <template>
+    <template if:true={orderList}>
+
+    </template>
+     <table class="slds-table slds-table_bordered slds-border_left slds-border_right" style="font-size: 14px;">
+                        <thead>
+                            <tr class="slds-line-height_reset">
+                                <th>Order Name</th>
+                                <th>Order Number</th>
+                                <th>Order Price</th>    
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <template for:each={orderList} for:item="oi" for:index="index">
+                                <tr class="slds-line-height_reset" key={oi.Id}>
+                                    
+                                    <td>
+                                         <lightning-formatted-text value={oi.Name} ></lightning-formatted-text>
+                                    </td>
+                                    <td>
+                                        <lightning-formatted-number value={oi.Order_Number__c} ></lightning-formatted-number>
+                                    </td>
+                                    <td>
+                                        <lightning-formatted-number
+                                        value="5000"
+                                        format-style="currency"
+                                        currency-code="USD"
+                                    ></lightning-formatted-number>
+                                    </td>
+                                                                      
+                                </tr>
+                            </template>
+                            <div class="pagination">
+                                <lightning-button-group>
+                                    <lightning-button label="Previous" onclick={handlePrevious} disabled={disablePrevious}></lightning-button>
+                                    <lightning-button label="Next" onclick={handleNext} disabled={disableNext}></lightning-button>
+                                </lightning-button-group>
+                            </div>
+                        </tbody>
+</table>
+
+<br/>
+
+</template> -->
+
+
+
+
+
+<template>
+    <div class="container">
+        <template for:each={displayedTiles} for:item="tile">
+           
+            <div key={tile.id} class="tile">
+                <td>
+                    <lightning-formatted-text value={tile.label} ></lightning-formatted-text>
+               </td>
+               <td>
+                <lightning-formatted-number value= {tile.labelsec} ></lightning-formatted-number>
+            </td>
+
+                <!-- {tile.label}
+                {tile.labelsec} -->
+            </div>
+        </template>
+    </div>
+    <div class="pagination">
+        <lightning-button-group>
+            <lightning-button label="Previous" onclick={handlePrevious} ></lightning-button>
+            <lightning-button label="Next" onclick={handleNext} ></lightning-button>
+        </lightning-button-group>
+    </div>
+</template>

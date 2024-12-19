@@ -1,0 +1,97 @@
+<template>
+  <lightning-card
+    variant="Narrow"  >
+
+    <div class="slds-p-left_medium">
+    <lightning-tabset>
+      <lightning-tab label="My Top Opportunity">
+          </br>
+          <div class="slds-p-left_medium">
+      <lightning-datatable
+        data={oppTeamList}
+        columns={columns}
+        key-field="Id"
+        onrowaction={handleRowActions}
+        sorted-by={sortBy}
+        hide-checkbox-column="false"
+        sorted-direction={sortDirection}
+        onsort={onHandleSort}>
+      </lightning-datatable>
+    </div>
+    <div class="slds-m-around_medium">
+      <p class="slds-m-vertical_medium content">
+        Displaying {startingRecord} to {endingRecord} of {totalRecountCount}
+        records. Page {page} of {totalPage}.
+      </p>
+      <lightning-layout>
+        <lightning-layout-item>
+          <lightning-button
+            label="Previous"
+            icon-name="utility:chevronleft"
+            onclick={previousHandler}
+            disabled={disablePrevious}
+          ></lightning-button>
+        </lightning-layout-item>
+        <lightning-layout-item flexibility="grow"></lightning-layout-item>
+        <lightning-layout-item>
+          <lightning-button
+            label="Next"
+            icon-name="utility:chevronright"
+            icon-position="right"
+            onclick={nextHandler}
+            disabled={disableNext}
+          ></lightning-button>
+        </lightning-layout-item>
+      </lightning-layout>
+    </div>
+      </lightning-tab>
+
+
+      <lightning-tab label="My Team's Top Opportunity">
+          </br>
+           <div class="slds-p-left_medium">
+      <lightning-datatable
+        data={oppMemberTeamList}
+        columns={columns}
+        key-field="Id"
+        onrowaction={handleRowActions}
+        sorted-by={sortBy}
+        hide-checkbox-column="false"
+        sorted-direction={sortDirection}
+        onsort={onHandleSort}>
+      </lightning-datatable>
+    </div>
+    <div class="slds-m-around_medium">
+      <p class="slds-m-vertical_medium content">
+        Displaying {temsStartingRecord} to {temsEndingRecord} of {temsTotalRecountCount}
+        records. Page {temsPage} of {temsTotalPage}.
+      </p>
+      <lightning-layout>
+        <lightning-layout-item>
+          <lightning-button
+            label="Previous"
+            icon-name="utility:chevronleft"
+            onclick={previousHandlerForMembersView}
+            disabled={temsDisablePrevious}
+          ></lightning-button>
+        </lightning-layout-item>
+        <lightning-layout-item flexibility="grow"></lightning-layout-item>
+        <lightning-layout-item>
+          <lightning-button
+            label="Next"
+            icon-name="utility:chevronright"
+            icon-position="right"
+            onclick={nextHandlerForMembersView}
+            disabled={temsDisableNext}
+          ></lightning-button>
+        </lightning-layout-item>
+      </lightning-layout>
+    </div>
+      </lightning-tab>
+
+    </lightning-tabset>
+    </div>
+
+    
+  </lightning-card>
+</template>

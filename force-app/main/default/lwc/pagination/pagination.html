@@ -1,0 +1,18 @@
+<template>
+    <lightning-layout class="setPadding">
+        <lightning-layout-item flexibility="auto" size="4">
+            Showing {currentPage} Of {totalPage} Page
+        </lightning-layout-item>
+        <lightning-layout-item  size="2" class="setMargin" alignment-bump="left">
+                <lightning-button variant="brand" label="First" title="First" onclick={gotoFirst} class="slds-m-left_x-small" disabled={firstButton}></lightning-button>
+                <lightning-button variant="brand" label="Prev" title="Previous" onclick={gotoPrevious} class="slds-m-left_x-small" disabled={previousButton}></lightning-button>
+        </lightning-layout-item>
+        <lightning-layout-item size="1">
+            <lightning-input type="number" class="textboxPosition" name="input2" variant = "label-hidden" label="Page Number" value={currentPage} onkeyup={gotoPageNumber}></lightning-input>
+        </lightning-layout-item>
+        <lightning-layout-item size="2" class="setMargin">
+                <lightning-button variant="brand" label="Next" title="Next" onclick={gotoNext} class="slds-m-left_x-small" disabled={nextButton}></lightning-button>
+                <lightning-button variant="brand" label="Last" title="Last" onclick={gotoLast} class="slds-m-left_x-small" disabled={lastButton}></lightning-button>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>

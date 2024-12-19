@@ -1,0 +1,12 @@
+.sldsFooter{
+    text-align: right;
+}
+.svgImage{
+    background-color: rgb(107, 146, 220); 
+    width : 32px;
+    border-radius: 4px;
+}
+.pagination{
+    margin-top : 1% !important;
+    
+}

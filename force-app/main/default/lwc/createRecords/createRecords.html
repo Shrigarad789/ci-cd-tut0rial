@@ -1,0 +1,35 @@
+<template>
+   
+    <div slot="title">
+        <h3>
+        <lightning-icon icon-name="standard:account" size=”small”></lightning-icon> Account Section
+        </h3>
+        </div>
+        
+        <lightning-input type="text" label="AccountName" class="accName" onchange={handleChangeName}>
+        </lightning-input>
+        <lightning-input type="text" label="AccountSite"  class="accSite" onchange={handleChangeSite}>
+        </lightning-input> 
+        
+        <lightning-combobox
+        class="IndustrySite"
+        label="Status"
+        value={selectedCricketerNationality}
+        placeholder="Select Industry"
+        options={optionsArray}
+        onchange={handleOptionChange} ></lightning-combobox>
+
+        <div slot="title">
+            <h3>
+            <lightning-icon icon-name="standard:account" size=”small”></lightning-icon> Opportunity Section
+            </h3>
+            </div>
+        <lightning-input type="text" label="Name" class="oppName" onchange={handleChangeOppName}>
+		</lightning-input>
+        
+      
+		
+		<lightning-button label="Save"  variant="brand" onclick={handleSave}>
+		</lightning-button>
+       
+</template>

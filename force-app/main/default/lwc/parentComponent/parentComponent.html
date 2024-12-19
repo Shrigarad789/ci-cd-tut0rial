@@ -1,0 +1,9 @@
+<template>
+    <lightning-card title="Parent">
+        
+<div class="slds-p-around_x-small">
+    <lightning-input type="text" label="Name" variant="standard" onchange={handleChange}> </lightning-input>
+</div>
+              <c-child-component message={messagefromparent}></c-child-component>
+    </lightning-card>
+</template>

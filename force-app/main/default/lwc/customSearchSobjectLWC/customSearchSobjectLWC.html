@@ -1,0 +1,26 @@
+<template>
+    <div>
+
+        <!-- Search input field with two-way data binding to searchTerm property -->
+        <lightning-input
+            type="search"
+            label="Search"
+            value={searchTerm}
+            onchange={handleSearchChange}>
+        </lightning-input>
+
+        <!-- List to display the fetched and filtered data -->
+        <ul>
+            <template for:each={filteredData} for:item="item" for:index="index">
+                <li key={item.id}>
+                    <!-- Display data for each item -->
+                    <div>
+                        <p>{item.name}</p>
+                        
+                        <!-- Add other fields as needed -->
+                    </div>
+                </li>
+            </template>
+        </ul>
+    </div>
+</template>

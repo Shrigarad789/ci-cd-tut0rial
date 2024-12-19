@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata" fqn="lookup">
+    <apiVersion>46.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen">
+            <property name="sobjectName" label="Object API Name" type="String" />
+            <property name="filterField" label="Controlled Field" type="String" />
+            <property name="filterValue" label="Controlled Field Value" type="String" />
+            <property name="title" label="Display Title" type="String" />
+            <property name="subtitle" label="Display Subtitle" type="String" />
+            <property name="fieldLabel" label="Label" type="String" />
+            <property name="readOnly" label="Readonly" type="Boolean" />
+            <property name="required" label="Required" type="Boolean" />
+            <property name="selectedValue" label="Value" type="String" />
+            <property name="searchType" label="Controlled Field Type" type="String" />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

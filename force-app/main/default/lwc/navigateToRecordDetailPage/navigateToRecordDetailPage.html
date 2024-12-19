@@ -1,0 +1,9 @@
+<template>
+    <lightning-card variant="Narrow" title="Hello" icon-name="standard:opportunity">
+        <p class="slds-p-horizontal_small">
+            <lightning-datatable if:true={opportunities.data} key-field="id" data={opportunities.data}
+                show-row-number-column hide-checkbox-column columns={opportunityCols} onrowaction={handleRowAction}>
+            </lightning-datatable>
+        </p>
+    </lightning-card>
+</template>

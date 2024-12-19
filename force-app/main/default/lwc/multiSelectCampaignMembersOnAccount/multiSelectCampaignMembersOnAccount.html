@@ -1,0 +1,30 @@
+<template>
+    <lightning-card title="Campaign Members" icon-name="standard:campaign_members">
+        <!-- LOADER -->
+        <template lwc:if={isLoading}>
+            <lightning-spinner variant="brand" size="large"></lightning-spinner>
+        </template>
+        
+        <!-- DATA TABLE -->
+        <template if:true={data}>
+            <lightning-datatable
+                key-field="Id"
+                data={data}
+                columns={columns}
+                onsave={handleSave}
+                draft-values={draftValues}
+            >
+            </lightning-datatable>
+        </template>
+        
+        <!-- ERROR MESSAGE -->
+        <template if:true={error}>
+            <p>{error}</p>
+        </template>
+        
+        <!-- FOOTER -->
+        <div class="slds-text-align_right slds-m-top_small">
+            <lightning-button label="Save" variant="brand" onclick={handleSave}></lightning-button>
+        </div>
+    </lightning-card>
+</template>

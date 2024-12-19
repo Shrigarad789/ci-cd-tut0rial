@@ -1,0 +1,78 @@
+<!--
+   @description       : Use MultiSelectPickList
+   @author            : HC
+   @group             : 
+   @last modified on  : 03-04-2024
+   -->
+   <template>
+    <lightning-layout multiple-rows="true">
+       <lightning-layout-item class="slds-p-around_xx-small" size="12">
+          <lightning-layout>
+             <lightning-layout-item class="slds-p-around_xx-small" size=6>
+                <div class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click slds-is-open" aria-expanded="true" 
+                   aria-haspopup="listbox" role="combobox" onmouseleave={handleMouseOut} onmouseenter={handleMouseIn}>
+                   <!-- Search Input-->
+                   <div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right" role="none">
+                      <lightning-input disabled={disabled} class="inputBox" placeholder="Select Option" onblur={handleBlur} onclick={showOptions} 
+                         onkeyup={filterOptions} value={searchString} variant="label-hidden" id="combobox-id-13" ></lightning-input>
+                      <lightning-icon class="slds-input__icon" icon-name="utility:down" size="x-small" alternative-text="downicon"></lightning-icon>
+                   </div>
+                   <!-- Dropdown List -->
+                   <template if:true={showDropdown}>
+                      <div id="listbox-id-121" class="slds-dropdown slds-dropdown_length-5 slds-dropdown_fluid">
+                         <ul class="slds-listbox slds-listbox_vertical recordListBox" role="presentation">
+                            <template if:false={noResultMessage} >
+                               <template for:each={optionData} for:item="option">
+                                  <li key={option.value} data-id={option.value} onmousedown={selectItem} class="slds-listbox__item eachItem" if:true={option.isVisible}>
+                                     <template if:true={option.selected}>
+                                        <lightning-icon icon-name="utility:check" size="x-small" alternative-text="icon" ></lightning-icon>
+                                     </template>
+                                     <span class="slds-media slds-listbox__option_entity verticalAlign slds-truncate">{option.label}</span>
+                                  </li>
+                               </template>
+                            </template>
+                            <!-- <template if:true={noResultMessage} >
+                               <li class="slds-listbox__item">
+                                   <span class="slds-media slds-listbox__option_entity verticalAlign slds-truncate">{noResultMessage}</span>
+                               </li>
+                               </template> -->
+                         </ul>
+                      </div>
+                   </template>
+                </div>
+             </lightning-layout-item>
+             <lightning-layout-item class="slds-p-around_xx-small" size=6>
+                <div class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click slds-is-open" aria-expanded="true" aria-haspopup="listbox" role="combobox" 
+                   onmouseleave={handleMouseOutcn} onmouseenter={handleMouseIncn}>
+                   <div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right" role="none">
+                      <lightning-input disabled={disabled} class="inputBox" placeholder="Select Option" onblur={handleBlurcn} onclick={showOptionscn}
+                         onkeyup={filterOptionscn} value={searchStringcn} variant="label-hidden" id="combobox-id-131" ></lightning-input>
+                      <lightning-icon class="slds-input__icon" icon-name="utility:down" size="x-small" alternative-text="downicon"></lightning-icon>
+                   </div>
+                   <template if:true={showDropdowncn}>
+                      <div id="listbox-id-1114" class="slds-dropdown slds-dropdown_length-5 slds-dropdown_fluid">
+                         <ul class="slds-listbox slds-listbox_vertical recordListBox" role="presentation">
+                            <template if:false={noResultMessagecn} >
+                               <template for:each={optionDatacn} for:item="optioncn">
+                                  <li key={optioncn.value} data-id={optioncn.value} onmousedown={selectItemcn} class="slds-listbox__item eachItem" if:true={optioncn.isVisible}>
+                                     <template if:true={optioncn.selected}>
+                                        <lightning-icon icon-name="utility:check" size="x-small" alternative-text="icon" ></lightning-icon>
+                                     </template>
+                                     <span class="slds-media slds-listbox__option_entity verticalAlign slds-truncate">{optioncn.label}</span>
+                                  </li>
+                               </template>
+                            </template>
+                            <!-- <template if:true={noResultMessagecn} >
+                               <li class="slds-listbox__item">
+                                   <span class="slds-media slds-listbox__option_entity verticalAlign slds-truncate">{noResultMessagecn}</span>
+                               </li>
+                               </template> -->
+                         </ul>
+                      </div>
+                   </template>
+                </div>
+             </lightning-layout-item>
+          </lightning-layout>
+       </lightning-layout-item>
+    </lightning-layout>
+ </template>

@@ -1,0 +1,11 @@
+<template>
+    <!-- Implement Search Functionality In LWC -->
+     <lightning-input type="Search"
+                      class="slds-p-around_x-small"
+                      onchange={handleChange}
+                      label="Search Lead Name"
+                      value={searckKey}>
+                    </lightning-input>
+    <!-- Implement Show lead record on page/LWC component -->
+    <lightning-datatable data={leadList} columns={columns} key-field="Id"></lightning-datatable>
+</template>

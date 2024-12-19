@@ -1,0 +1,99 @@
+<template>
+      <!-- LOADER -->
+      <template lwc:if={isLoading}>
+        <lightning-spinner variant="brand" size="large"></lightning-spinner>
+    </template>
+    <!-- HEADER -->
+    <div class="header slds-tabs_card">
+        <div class="slds-page-header" style="padding:0px;">
+            <div class="slds-page-header__row">
+                <div class="slds-page-header__col-title">
+                    <div class="slds-media">
+                        <div class="slds-media__figure">
+                            <span class="slds-icon_container slds-icon-standard-opportunity">
+                                <lightning-icon icon-name="standard:recipe" alternative-text="recipe" title="recipe"></lightning-icon>
+                            </span>
+                        </div>
+                        <div class="slds-media__body">
+                            <div class="slds-page-header__name">
+                                <div class="slds-page-header__name-title">
+                                    <h1>
+                                        <span class="slds-page-header__title slds-truncate" title="Recently Viewed">Technical Revenue</span>
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- TABLE -->
+    <div class="slds-scrollable_y table-container">
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+            <thead>
+                <tr>
+                    <th>Product Part Number</th>
+                    <th>Additional Comments</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <template for:each={techRevenue} for:item="technical">
+                    <tr key={technical.tempId}>
+                        <td class="no-padding">
+                            <lightning-input 
+                                label="Product Part Number" 
+                                variant="label-hidden" 
+                                data-id={technical.tempId}
+                                name="Product_Part_Number__c" 
+                                onblur={elementChangeHandler}
+                                onchange={handlePPNumberChange}
+                                value={technical.Product_Part_Number__c}
+                                class="no-padding"
+                                style="width: 100%;">
+                            </lightning-input>
+                        </td>
+                        <td class="no-padding">
+                            <lightning-textarea 
+                                label="Additional Comments" 
+                                variant="label-hidden" 
+                                name="Additional_Comments__c"
+                                data-id={technical.tempId} 
+                                onblur={elementChangeHandler}
+                                onchange={handleCommentsChange}
+                                value={technical.Additional_Comments__c}
+                                class="no-padding"
+                                style="width: 100%;">
+                            </lightning-textarea>
+                        </td>
+                       
+                       
+                        <td class="no-padding">
+                            <lightning-button-icon 
+                                icon-name="utility:delete" 
+                                variant="bare" 
+                                title="Delete technical"
+                                class="slds-m-left_xx-small" 
+                                onclick={deleteClickHandler}
+                                data-temp-id={technical.tempId}>
+                            </lightning-button-icon>
+                            &nbsp;
+                            <lightning-button-icon 
+                                icon-name="utility:add" 
+                                variant="bare" 
+                                title="Add New technical"
+                                class="slds-m-left_xx-small" 
+                                onclick={addNewClickHandler}>
+                            </lightning-button-icon>
+                        </td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+    </div>
+    <!-- FOOTER -->
+   <div class="footer slds-modal__footer slds-text-align_center">
+    <lightning-button label="Save" variant="brand" class="slds-button slds-button_brand" onclick={submitClickHandler} size="large"></lightning-button>
+</div>
+</template>
